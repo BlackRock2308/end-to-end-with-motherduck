@@ -42,17 +42,42 @@ This project builds a modern data pipeline that ingests data from a Dockerized P
 version: '3.8'
 services:
   postgres:
-    image: postgres:14
+    image: postgres:latest
+    container_name: postgres_db
     environment:
-      POSTGRES_USER: myuser
-      POSTGRES_PASSWORD: mypassword
-      POSTGRES_DB: mydb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: my_db
     ports:
-      - "5432:5432"  
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+volumes:
+  postgres_data:  
+```
 
+### Populate PostgreSQL with Sample Data
 
 ```
-``` docker-compose up -d ```
+docker cp data/fact_conso_region.csv postgres_db:/fact_conso_region.csv
+
+```
+
+After that you can run the following command to populate the PostgreSQL database with the sample data.
+
+```
+COPY consumption_data(annee, operateur_id, id_filiere, code_region, code_grand_secteur, pdl, conso, code_categorie_consommation, code_naf)
+FROM '/fact_conso_region.csv'
+DELIMITER ','
+CSV HEADER;
+COPY 11104 
+```
+
+postgres_db is the container name of the PostgreSQL instance.
+
+``` 
+docker-compose up -d 
+```
 
 #### Python Virtual Environment
 
