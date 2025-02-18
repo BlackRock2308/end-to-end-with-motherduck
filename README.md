@@ -7,29 +7,6 @@ This repository demonstrates an end-to-end data pipeline that:
 - **Visualizes** the transformed data using a Streamlit dashboard.
 - **Simulates** new data by inserting 10 rows into PostgreSQL every 10 minutes.
 
-## Table of Contents
-
-- [Overview](#overview)
-- [Features](#features)
-- [Architecture](#architecture)
-- [Prerequisites](#prerequisites)
-- [Setup](#setup)
-  - [PostgreSQL Docker Setup](#postgresql-docker-setup)
-  - [Python Virtual Environment](#python-virtual-environment)
-  - [MotherDuck Setup](#motherduck-setup)
-  - [dbt Setup](#dbt-setup)
-  - [Dagster Setup](#dagster-setup)
-  - [Streamlit Setup](#streamlit-setup)
-- [Usage](#usage)
-  - [Simulating Data Inserts](#simulating-data-inserts)
-  - [Data Ingestion](#data-ingestion)
-  - [Data Transformation](#data-transformation)
-  - [Orchestrating with Dagster](#orchestrating-with-dagster)
-  - [Launching the Streamlit Dashboard](#launching-the-streamlit-dashboard)
-- [Project Structure](#project-structure)
-- [Troubleshooting](#troubleshooting)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Overview
 
